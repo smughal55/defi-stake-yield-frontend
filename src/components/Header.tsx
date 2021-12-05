@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     container: {
         display: "flex",
         justifyContent: "flex-end",
-        gap: '0 40px',
+        gap: '0 5px',
         padding: '8px 8px'
     },
     root: {
