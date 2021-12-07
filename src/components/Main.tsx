@@ -11,6 +11,7 @@ import eth from "../eth.png"
 import { YourWallet } from "./yourWallet/yourWallet"
 import { makeStyles } from "@mui/styles"
 import { createTheme } from '@mui/material/styles';
+import { YourTokenFarm } from "./yourTokenFarm"
 
 export type Token = {
     image: string
@@ -65,5 +66,6 @@ export const Main = () => {
     return (<>
         <h2 className={classes.title}>Dapp Token Farm</h2>
         <YourWallet supportedTokens={supportedTokens} />
+        <YourTokenFarm supportedTokens={supportedTokens} />
     </>)
 }
