@@ -7,6 +7,16 @@ import Button from '@mui/material/Button';
 import Alert from "@mui/lab/Alert"
 import { useStakeTokens } from "../../hooks/useStakeTokens";
 import { utils } from "ethers"
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles(() => ({
+    centerAdornment: {
+        marginLeft: "50%" // or your relevant measure
+    },
+    centerText: {
+        textAlign: "center"
+    }
+}));
 
 
 export interface StakeFormProps {
@@ -15,6 +25,7 @@ export interface StakeFormProps {
 
 export const StakeForm = ({ token }: StakeFormProps) => {
 
+    const classes = useStyles()
     const { address: tokenAddress, name } = token
     const { account } = useEthers()
     const tokenBalance = useTokenBalance(tokenAddress, account)
@@ -32,6 +43,7 @@ export const StakeForm = ({ token }: StakeFormProps) => {
     const { approveAndStake, state: approveAndStakeErc20State } = useStakeTokens(tokenAddress)
     const handleStakeSubmit = () => {
         const amountAsWei = utils.parseEther(amount.toString())
+        console.log(amountAsWei)
         return approveAndStake(amountAsWei.toString())
     }
 
@@ -63,7 +75,10 @@ export const StakeForm = ({ token }: StakeFormProps) => {
     return (
         <>
             <div>
-                <Input placeholder="  Enter stake amount" onChange={handleInputChange} />
+                <Input
+                    placeholder="Enter stake amount"
+                    onChange={handleInputChange}
+                />
                 <Button
                     onClick={handleStakeSubmit}
                     variant="text"

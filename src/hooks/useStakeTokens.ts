@@ -26,6 +26,7 @@ export const useStakeTokens = (tokenAddress: string) => {
         })
     const approveAndStake = (amount: string) => {
         setAmountToStake(amount)
+        console.log("stake: " + amount)
         return approveErc20Send(tokenFarmAddress, amount)
     }
     // stake
@@ -39,6 +40,7 @@ export const useStakeTokens = (tokenAddress: string) => {
     useEffect(() => {
         if (approveAndStakeErc20State.status === "Success") {
             // stake func
+            console.log("amountToStake: " + amountToStake)
             stakeSend(amountToStake, tokenAddress)
         }
 
