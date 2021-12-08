@@ -3,8 +3,8 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(() => ({
     amount: {
-        fontWeight: 700,
-        color: "white"
+        fontWeight: 900,
+        color: 'midnightblue'
     }
 }));
 
@@ -17,7 +17,7 @@ export const TVLMsg = ({ amount }: TVLMsgProps) => {
 
     return (
         <div>
-            <div className={classes.amount}>{amount}</div>
+            <div className={classes.amount}>Total Value Locked (USD): {amount}</div>
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import { formatUnits } from "@ethersproject/units"
-import { useUserTotalValue, useUniqueTokensStaked } from "../../hooks"
+import { useUserTotalValue } from "../../hooks"
 import { TVLMsg } from "../TVLMsg"
-import { useEthers } from "@usedapp/core"
 
 var formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -12,18 +11,14 @@ var formatter = new Intl.NumberFormat('en-US', {
     //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
 
-export const UserTVL = () => {
+interface UserTVLProps {
+    fetch: boolean
+}
 
-    const { account } = useEthers()
+export const UserTVL = ({ fetch }: UserTVLProps) => {
 
-    var uniqueTokensStaked = useUniqueTokensStaked()
-    console.log("uniqueTokensStaked: " + uniqueTokensStaked)
-
-    var userAccountOrFalse = uniqueTokensStaked === undefined || uniqueTokensStaked == 0 ? false : account
-    console.log("userAccountOrFalse: " + userAccountOrFalse)
-
-    var userTotalValue = useUserTotalValue(userAccountOrFalse)
-    if (userTotalValue == undefined) {
+    var userTotalValue = useUserTotalValue(fetch)
+    if (userTotalValue === undefined) {
         return (<TVLMsg
             amount={formatter.format(0)} />)
     } else {

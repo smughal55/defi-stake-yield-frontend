@@ -5,7 +5,7 @@ import networkMapping from "../chain-info/deployments/map.json"
 import { useState, useEffect } from "react"
 import { Falsy } from "@usedapp/core/dist/esm/src/model/types"
 
-export const useUniqueTokensStaked = (): number => {
+export const useUserTotalValue = (fetch: boolean): BigNumber | undefined => {
     // address
     // abi
     // chainId
@@ -15,8 +15,11 @@ export const useUniqueTokensStaked = (): number => {
     const tokenFarmInterface = new utils.Interface(abi)
 
     const { account } = useEthers()
+    var userAccount: String | Falsy
+    console.log("fetch: " + fetch)
     const [numberOfUniqueTokensStaked] =
         useContractCall(
+            fetch &&
             {
                 abi: tokenFarmInterface,
                 address: tokenFarmAddress,
@@ -24,19 +27,9 @@ export const useUniqueTokensStaked = (): number => {
                 args: [account],
             }
         ) ?? [];
-    return numberOfUniqueTokensStaked
-}
-
-export const useUserTotalValue = (userAccount: String | Falsy): BigNumber | undefined => {
-    // address
-    // abi
-    // chainId
-    const { chainId } = useEthers()
-    const { abi } = TokenFarm
-    const tokenFarmAddress = chainId ? networkMapping[String(chainId)]["TokenFarm"][0] : constants.AddressZero
-    const tokenFarmInterface = new utils.Interface(abi)
-
-    const { account } = useEthers()
+    console.log("numberOfUniqueTokensStaked:" + numberOfUniqueTokensStaked)
+    userAccount = numberOfUniqueTokensStaked === undefined || Number(numberOfUniqueTokensStaked) === 0 ? false : account
+    console.log("userAccount:" + userAccount)
 
     // get user's total value (USD)
     const [userTotalValue] =

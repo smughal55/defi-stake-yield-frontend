@@ -6,6 +6,8 @@ import React, { useState, useEffect } from "react";
 import Button from '@mui/material/Button';
 import Alert from "@mui/lab/Alert"
 import { useUnStakedTokens } from "../../hooks/useUnstakedTokens";
+import { useUserTotalValue } from "../../hooks";
+import { UserTVL } from "../TVL/UserTVL";
 
 export interface StakeFormProps {
     token: Token
@@ -50,6 +52,9 @@ export const UnStakeForm = ({ token }: StakeFormProps) => {
                     disabled={isMining}>
                     {isMining ? <CircularProgress size={26} /> : "UNSTAKE " + name}
                 </Button>
+            </div>
+            <div>
+                {isMining ? <CircularProgress size={26} /> : <UserTVL fetch={!isMining} />}
             </div>
             <Snackbar
                 open={showUnStakeTokenSuccess}

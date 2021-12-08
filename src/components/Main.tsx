@@ -66,6 +66,5 @@ export const Main = () => {
         <h2 className={classes.title}>Dapp Token Farm</h2>
         <YourWallet supportedTokens={supportedTokens} />
         <YourTokenFarm supportedTokens={supportedTokens} />
-        <UserTVL />
     </>)
 }
