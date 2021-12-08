@@ -10,8 +10,8 @@ import dai from "../dai.png"
 import eth from "../eth.png"
 import { YourWallet } from "./yourWallet/yourWallet"
 import { makeStyles } from "@mui/styles"
-import { createTheme } from '@mui/material/styles';
 import { YourTokenFarm } from "./yourTokenFarm"
+import { UserTVL } from "./TVL"
 
 export type Token = {
     image: string
@@ -19,8 +19,7 @@ export type Token = {
     name: string
 }
 
-const theme = createTheme();
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     title: {
         color: 'white',
         textAlign: 'center',

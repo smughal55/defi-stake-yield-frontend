@@ -2,7 +2,7 @@ import { formatUnits } from "@ethersproject/units"
 import { useEthers } from "@usedapp/core"
 import { Token } from "../Main"
 import { BalanceMsg } from "../BalanceMsg"
-import { useStakedTokens } from "../../hooks"
+import { useStakedTokens } from "../../hooks/useUnstakedTokens"
 
 export interface WalletBalanceProps {
     token: Token

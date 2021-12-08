@@ -84,7 +84,7 @@ export const StakeForm = ({ token }: StakeFormProps) => {
                     variant="text"
                     color="primary"
                     disabled={isMining}>
-                    {isMining ? <CircularProgress size={26} /> : "Stake!"}
+                    {isMining ? <CircularProgress size={26} /> : "Stake " + name + "!"}
                 </Button>
             </div>
             <Snackbar
@@ -100,7 +100,7 @@ export const StakeForm = ({ token }: StakeFormProps) => {
                 autoHideDuration={5000}
                 onClose={handleCloseSnack}>
                 <Alert onClose={handleCloseSnack} severity="success">
-                    Tokens Staked!
+                    {name} Tokens Staked!
                 </Alert>
             </Snackbar>
         </>
