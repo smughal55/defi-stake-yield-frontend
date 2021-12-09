@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles(() => ({
     amount: {
         fontWeight: 900,
-        color: 'midnightblue'
+        color: '#302E52'
     }
 }));
 
