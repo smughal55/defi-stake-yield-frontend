@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/defi-stake-yield-frontend/static/css/main.735e1f15.chunk.css",
-    "main.js": "/defi-stake-yield-frontend/static/js/main.191d4072.chunk.js",
-    "main.js.map": "/defi-stake-yield-frontend/static/js/main.191d4072.chunk.js.map",
+    "main.js": "/defi-stake-yield-frontend/static/js/main.0ff5bfc8.chunk.js",
+    "main.js.map": "/defi-stake-yield-frontend/static/js/main.0ff5bfc8.chunk.js.map",
     "runtime-main.js": "/defi-stake-yield-frontend/static/js/runtime-main.018ced7c.js",
     "runtime-main.js.map": "/defi-stake-yield-frontend/static/js/runtime-main.018ced7c.js.map",
     "static/js/2.c6386b63.chunk.js": "/defi-stake-yield-frontend/static/js/2.c6386b63.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.018ced7c.js",
     "static/js/2.c6386b63.chunk.js",
     "static/css/main.735e1f15.chunk.css",
-    "static/js/main.191d4072.chunk.js"
+    "static/js/main.0ff5bfc8.chunk.js"
   ]
 }
